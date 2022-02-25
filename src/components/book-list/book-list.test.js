@@ -15,7 +15,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import App from "../app";
 
 
-it('render book list',()=>{
+it('render loading',()=>{
     let store = createStore(reducer);
     render(
         <Provider store={store}>
@@ -26,4 +26,8 @@ it('render book list',()=>{
 
         </Provider>
     )
+
+    expect(screen.getByText(/loading/i))
+
+
 })
