@@ -1,0 +1,60 @@
+.shopping-cart-table {
+  margin-top: 45px;
+}
+
+.shopping-cart-table .total {
+  text-align: right;
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.shopping-cart-table button {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+}
+.table th {
+  font-weight: bold;
+  padding: 5px;
+  background: #efefef;
+  border: 1px solid #dddddd;
+}
+.table td {
+  border: 1px solid #dddddd;
+  padding: 5px;
+  text-align: center;
+}
+
+.button {
+
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.trash {
+  background-color: red;
+}
+
+.increase {
+  background-color: green;
+}
+
+.decrease {
+  background-color: yellow;
+}
