@@ -51,7 +51,6 @@ export const allBooksRemovedFromCart = (bookId: books) => {
 
 
 const fetchBooks = ({bookstoreService, dispatch}: { bookstoreService: any, dispatch: any }) => () => {
-  console.log(bookstoreService.getBooks())
     dispatch(booksRequested());
     bookstoreService.getBooks()
         .then((data: any) => dispatch(booksLoaded(data)))
