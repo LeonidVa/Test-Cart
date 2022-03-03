@@ -1,4 +1,4 @@
-const updateCartItems = (cartItems, item, idx) => {
+const updateCartItems = (cartItems: any, item: any, idx: any) => {
 
   if (item.count === 0) {
     return [
@@ -21,7 +21,7 @@ const updateCartItems = (cartItems, item, idx) => {
   ];
 };
 
-const updateCartItem = (book, item = {}, quantity) => {
+const updateCartItem = (book: any, item: any = {}, quantity: any) => {
 
   const {
     id = book.id,
@@ -37,12 +37,12 @@ const updateCartItem = (book, item = {}, quantity) => {
   };
 };
 
-const updateOrder = (state, bookId, quantity) => {
+const updateOrder = (state: any, bookId: any, quantity: any) => {
 
   const { bookList: { books }, shoppingCart: { cartItems }} = state;
 
-  const book = books.find(({id}) => id === bookId);
-  const itemIndex = cartItems.findIndex(({id}) => id === bookId);
+  const book = books.find(({id}:{id:any}) => id === bookId);
+  const itemIndex = cartItems.findIndex(({id}:{id:any}) => id === bookId);
   const item = cartItems[itemIndex];
 
   const newItem = updateCartItem(book, item, quantity);
@@ -62,7 +62,7 @@ const updateOrder = (state, bookId, quantity) => {
 
 };
 
-const updateShoppingCart = (state, action) => {
+const updateShoppingCart = (state: any, action: any) => {
 
   if (state === undefined) {
     return {
@@ -79,7 +79,7 @@ const updateShoppingCart = (state, action) => {
       return updateOrder(state, action.payload, -1);
 
     case 'ALL_BOOKS_REMOVED_FROM_CART':
-      const item = state.shoppingCart.cartItems.find(({id}) => id === action.payload);
+      const item = state.shoppingCart.cartItems.find(({id}:{id:any}) => id === action.payload);
       return updateOrder(state, action.payload, -item.count);
 
     default:

@@ -8,11 +8,23 @@ import {
 
 import './shopping-cart-table.css';
 
-const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) => {
+interface book {
+    id: number,
+    title: string,
+    author: string,
+    price: number,
+    count: number,
+    total: number
+}
 
-  const renderRow = (item, idx) => {
+interface books extends Array<book>{}
+
+
+const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }:
+                               {items: books, total: number, onIncrease: any, onDecrease: any, onDelete: any}) => {
+
+  const renderRow = (item: book, idx: number) => {
     const { id, title, count, total } = item;
-
     return (
       <tr key={id}>
         <td>{idx + 1}</td>
@@ -67,7 +79,7 @@ const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) =
   );
 };
 
-const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal }}) => {
+const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal }}:{shoppingCart: any}) => {
   return {
     items: cartItems,
     total: orderTotal

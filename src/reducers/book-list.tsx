@@ -1,4 +1,9 @@
-const updateBookList = (state, action) => {
+type Action<TPayload> = {
+  type: string;
+  payload: TPayload;
+}
+
+const updateBookList = (state: any, action: Action<string>) => {
 
   if (state === undefined) {
     return {

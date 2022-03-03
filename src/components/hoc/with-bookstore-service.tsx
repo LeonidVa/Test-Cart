@@ -1,9 +1,13 @@
 import React from 'react';
 import { BookstoreServiceConsumer } from '../bookstore-service-context';
 
-const withBookstoreService = () => (Wrapped) => {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode
+}
 
-  return (props) => {
+const withBookstoreService = () => (Wrapped: React.ComponentClass<any>) => {
+
+  return (props: Props) => {
     return (
       <BookstoreServiceConsumer>
         {

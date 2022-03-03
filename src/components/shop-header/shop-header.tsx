@@ -2,7 +2,7 @@ import React from 'react';
 import './shop-header.css';
 import { Link } from 'react-router-dom';
 
-const ShopHeader = ({ numItems, total }) => {
+const ShopHeader = () => {
   return (
     <header className="shop-header row">
       <Link to="/">

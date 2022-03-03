@@ -12,11 +12,22 @@ import ErrorIndicator from '../error-indicator';
 
 import './book-list.css';
 
-const BookList = ({ books, onAddedToCart }) => {
+
+interface book {
+  id: number,
+  title: string,
+  author: string,
+  price: number,
+  coverImage: string
+}
+
+interface books extends Array<book>{}
+
+const BookList = ({ books, onAddedToCart }: { books: books, onAddedToCart: React.MouseEventHandler }) => {
   return (
     <ul className="book-list">
       {
-        books.map((book) => {
+        books.map((book: any) => {
           return (
             <li key={book.id} className='book-list-item-li'>
               <BookListItem
@@ -30,14 +41,19 @@ const BookList = ({ books, onAddedToCart }) => {
   );
 };
 
-class BookListContainer extends Component {
+
+
+
+class BookListContainer extends Component<any, any> {
 
   componentDidMount() {
+
     this.props.fetchBooks();
   }
 
   render() {
-    const { books, loading, error, onAddedToCart } = this.props;
+
+    const { books, loading, error, onAddedToCart }  = this.props;
 
     if (loading) {
       return <Spinner />;
@@ -51,15 +67,16 @@ class BookListContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ bookList: { books, loading, error }}) => {
+
+const mapStateToProps = ({ bookList: { books, loading, error }}:{bookList: any}) => {
   return { books, loading, error };
 };
 
-const mapDispatchToProps = (dispatch, { bookstoreService }) => {
+const mapDispatchToProps = (dispatch: any, { bookstoreService }: any) => {
 
   return {
-    fetchBooks: fetchBooks(bookstoreService, dispatch),
-    onAddedToCart: (id) => dispatch(bookAddedToCart(id))
+    fetchBooks: fetchBooks({bookstoreService: bookstoreService, dispatch: dispatch}),
+    onAddedToCart: (id: number) => dispatch(bookAddedToCart(id))
   };
 };
 

@@ -1,7 +1,16 @@
 import React from 'react';
 import './book-list-item.css';
 
-const BookListItem = ({ book, onAddedToCart }) => {
+interface book {
+    id: number,
+    title: string,
+    author: string,
+    price: number,
+    coverImage: string
+}
+
+
+const BookListItem = ({ book, onAddedToCart }: {book: book, onAddedToCart: React.MouseEventHandler}) => {
   const { title, author, price } = book;
   return (
     <div className="book-list-item" role='book-list-item'>

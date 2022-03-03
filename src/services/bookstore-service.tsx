@@ -1,5 +1,17 @@
+import {bookAddedToCart} from "../actions";
 
-export default class BookstoreService {
+interface book {
+  id: number,
+  title: string,
+  author: string,
+  price: number,
+  coverImage: string
+}
+
+interface books extends Array<book>{}
+
+
+export default class BookstoreService<book> {
 
   data = [
     {
@@ -41,7 +53,7 @@ export default class BookstoreService {
   ];
 
   getBooks() {
-    return new Promise((resolve, reject) => {
+    return new Promise<books>((resolve, reject) => {
       setTimeout(() => {
 
           resolve(this.data);
