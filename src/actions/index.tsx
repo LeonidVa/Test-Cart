@@ -7,10 +7,6 @@ interface books {
     coverImage: string
 }
 
-interface IAllAssetsDispatch {
-  dispatch: (arg: string) => (void)
-}
-
 const booksRequested = () => {
     return {
         type: 'FETCH_BOOKS_REQUEST'

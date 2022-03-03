@@ -47,7 +47,6 @@ const updateOrder = (state: any, bookId: any, quantity: any) => {
 
   const newItem = updateCartItem(book, item, quantity);
   const items = updateCartItems(cartItems, newItem, itemIndex)
-  console.log(items)
   let total = 0;
   items.forEach((item)=>{
     total += item.total
